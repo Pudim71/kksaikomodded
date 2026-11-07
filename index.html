@@ -1,142 +1,30 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KkSaiko Modded</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Inter:wght@500;600&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background: #050505;
-      color: #e5e5e5;
-      font-family: 'Inter', system-ui, sans-serif;
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      padding: 24px;
-    }
-
-    .wrap {
-      width: 100%;
-      max-width: 680px;
-      text-align: center;
-    }
-
-    img {
-      width: 100%;
-      border-radius: 8px;
-      display: block;
-      margin-bottom: 32px;
-      border: 1px solid #222;
-    }
-
-    h1 {
-      font-family: 'Bungee', sans-serif;
-      font-size: clamp(1.9rem, 5.5vw, 2.8rem);
-      color: #fff;
-      margin-bottom: 8px;
-      letter-spacing: 1px;
-    }
-
-    .sub {
-      font-size: 0.95rem;
-      color: #666;
-      margin-bottom: 48px;
-      letter-spacing: 1px;
-    }
-
-    .timer {
-      display: flex;
-      justify-content: center;
-      gap: 28px;
-      flex-wrap: wrap;
-    }
-
-    .block {
-      min-width: 72px;
-    }
-
-    .num {
-      font-family: 'Bungee', sans-serif;
-      font-size: clamp(2.6rem, 9vw, 4.2rem);
-      color: #fff;
-      line-height: 1;
-    }
-
-    .label {
-      font-size: 0.72rem;
-      color: #555;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-top: 8px;
-    }
-
-    @media (max-width: 480px) {
-      .timer {
-        gap: 16px;
-      }
-      .block {
-        min-width: 60px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>KkSaiko Modded</title>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Inter:wght@500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{background:#050505;color:#e5e5e5;font-family:Inter,system-ui,sans-serif;min-height:100vh;display:grid;place-items:center;padding:24px;transition:background .6s ease}body.day{background:#0e0e12}.wrap{width:100%;max-width:680px;text-align:center}img{width:100%;border-radius:8px;display:block;margin-bottom:32px;border:1px solid #222}h1{font-family:Bungee,sans-serif;font-size:clamp(1.9rem,5.5vw,2.8rem);color:#fff;margin-bottom:8px;letter-spacing:1px}.sub{font-size:.95rem;color:#666;margin-bottom:40px;letter-spacing:1px}.timer{display:flex;justify-content:center;gap:28px;flex-wrap:wrap}.block{min-width:72px}.num{font-family:Bungee,sans-serif;font-size:clamp(2.6rem,9vw,4.2rem);color:#fff;line-height:1}.label{font-size:.72rem;color:#555;text-transform:uppercase;letter-spacing:2px;margin-top:8px}.play-btn{display:none;margin-top:36px;text-decoration:none;background:#fff;color:#000;font-family:Bungee,sans-serif;font-size:1.15rem;padding:16px 42px;border-radius:6px;letter-spacing:1px;transition:transform .15s ease,background .15s ease}.play-btn:hover{background:#e0e0e0;transform:scale(1.04)}.mode{position:fixed;top:18px;right:18px;font-size:.75rem;color:#444;letter-spacing:1px;text-transform:uppercase}@media(max-width:480px){.timer{gap:16px}.block{min-width:60px}}
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <img src="https://tr.rbxcdn.com/180DAY-942f70f9671ca17af4441d3aa1598acd/768/432/Image/Png/noFilter" alt="KkSaiko Modded">
-    
-    <h1>KkSaiko Modded</h1>
-    <div class="sub">new experience</div>
-
-    <div class="timer">
-      <div class="block">
-        <div class="num" id="d">0</div>
-        <div class="label">days</div>
-      </div>
-      <div class="block">
-        <div class="num" id="h">00</div>
-        <div class="label">hours</div>
-      </div>
-      <div class="block">
-        <div class="num" id="m">00</div>
-        <div class="label">min</div>
-      </div>
-      <div class="block">
-        <div class="num" id="s">00</div>
-        <div class="label">sec</div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    const end = 1794088800 * 1000;
-
-    function tick() {
-      const now = Date.now();
-      let t = Math.max(0, end - now);
-
-      const d = Math.floor(t / 86400000);
-      t %= 86400000;
-      const h = Math.floor(t / 3600000);
-      t %= 3600000;
-      const m = Math.floor(t / 60000);
-      t %= 60000;
-      const s = Math.floor(t / 1000);
-
-      document.getElementById('d').textContent = d;
-      document.getElementById('h').textContent = String(h).padStart(2, '0');
-      document.getElementById('m').textContent = String(m).padStart(2, '0');
-      document.getElementById('s').textContent = String(s).padStart(2, '0');
-    }
-
-    tick();
-    setInterval(tick, 1000);
-  </script>
+<div class="mode" id="m0"></div>
+<div class="wrap">
+<img id="i0" src="" alt="">
+<h1>KkSaiko Modded</h1>
+<div class="sub" id="s0"></div>
+<div class="timer" id="t0">
+<div class="block"><div class="num" id="d0">0</div><div class="label">days</div></div>
+<div class="block"><div class="num" id="h0">00</div><div class="label">hours</div></div>
+<div class="block"><div class="num" id="m1">00</div><div class="label">min</div></div>
+<div class="block"><div class="num" id="s1">00</div><div class="label">sec</div></div>
+</div>
+<a href="" class="play-btn" id="p0" target="_blank">JOGAR AGORA</a>
+</div>
+<script>
+(function(){var _0x=['aHR0cHM6Ly90ci5yYnhjZG4uY29tLzE4MERBWS05NDJmNzBmOTY3MWNhMTdhZjQ0NDFkM2FhMTU5OGFjZC83NjgvNDMyL0ltYWdlL1BuZy9ub0ZpbHRlcg==','aHR0cHM6Ly90ci5yYnhjZG4uY29tLzE4MERBWS0zODNjYjkzZWVhMGMxYTJjYTk5MDFjNWYwMjEwOGU1ZS83NjgvNDMyL0ltYWdlL1dlYnAvbm9GaWx0ZXI=','aHR0cHM6Ly93d3cucm9ibG94LmNvbS9wdC9nYW1lcy85OTM5NDUxMTM2MTM0NC9La1NhaWtvLU1vZGRlZC1HYW1l','bmV3IGV4cGVyaWVuY2U=','ZGlzcG9uw612ZWwgbm9yYQ==','ZGlh','bm9pdGU='];function _d(s){return atob(s)}var e=1794085200*1e3,a=_d(_0x[0]),b=_d(_0x[1]),c=_d(_0x[2]),f=_d(_0x[3]),g=_d(_0x[4]),h=_d(_0x[5]),i=_d(_0x[6]);document.getElementById('i0').src=a;document.getElementById('s0').textContent=f;document.getElementById('p0').href=c;function u(){var k=new Date().getHours(),l=k>=6&&k<18;document.body.classList.toggle('day',l);document.getElementById('m0').textContent=l?h:i}function v(){var n=Date.now(),t=Math.max(0,e-n);if(t<=0){document.getElementById('t0').style.display='none';document.getElementById('s0').textContent=g;document.getElementById('i0').src=b;document.getElementById('p0').style.display='inline-block';return}var d=Math.floor(t/864e5);t%=864e5;var o=Math.floor(t/36e5);t%=36e5;var p=Math.floor(t/6e4);t%=6e4;var q=Math.floor(t/1e3);document.getElementById('d0').textContent=d;document.getElementById('h0').textContent=String(o).padStart(2,'0');document.getElementById('m1').textContent=String(p).padStart(2,'0');document.getElementById('s1').textContent=String(q).padStart(2,'0')}u();v();setInterval(v,1e3);setInterval(u,6e4)})();
+</script>
 </body>
 </html>
