@@ -4,9 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KkSaiko Modded</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -15,191 +13,132 @@
     }
 
     body {
-      background: #000;
-      color: #fff;
+      background: #050505;
+      color: #e5e5e5;
+      font-family: 'Inter', system-ui, sans-serif;
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Rajdhani', sans-serif;
-      overflow-x: hidden;
-      position: relative;
+      display: grid;
+      place-items: center;
+      padding: 24px;
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: radial-gradient(ellipse at top, #0a0a12 0%, #000 70%);
-      z-index: -1;
-    }
-
-    .container {
+    .wrap {
+      width: 100%;
+      max-width: 680px;
       text-align: center;
-      padding: 40px 20px;
-      max-width: 900px;
+    }
+
+    img {
       width: 100%;
+      border-radius: 8px;
+      display: block;
+      margin-bottom: 28px;
+      border: 1px solid #222;
     }
 
-    .game-image {
-      width: 100%;
-      max-width: 720px;
-      border-radius: 16px;
-      box-shadow: 
-        0 0 40px rgba(0, 180, 255, 0.25),
-        0 0 80px rgba(0, 100, 255, 0.15);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      margin-bottom: 40px;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      letter-spacing: -0.5px;
+      color: #fff;
+      margin-bottom: 6px;
     }
 
-    .game-image:hover {
-      transform: scale(1.02);
-      box-shadow: 
-        0 0 50px rgba(0, 200, 255, 0.35),
-        0 0 100px rgba(0, 120, 255, 0.2);
+    .sub {
+      font-size: 0.95rem;
+      color: #666;
+      margin-bottom: 48px;
+      letter-spacing: 1px;
     }
 
-    .title {
-      font-family: 'Orbitron', sans-serif;
-      font-weight: 900;
-      font-size: clamp(2.2rem, 6vw, 4.2rem);
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-      background: linear-gradient(90deg, #ffffff, #7dd3fc, #38bdf8);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
-    }
-
-    .subtitle {
-      font-size: 1.15rem;
-      letter-spacing: 6px;
-      text-transform: uppercase;
-      color: #94a3b8;
-      margin-bottom: 50px;
-      font-weight: 600;
-    }
-
-    .countdown {
+    .timer {
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 32px;
       flex-wrap: wrap;
     }
 
-    .time-box {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-width: 90px;
+    .block {
+      min-width: 70px;
     }
 
-    .time-number {
-      font-family: 'Orbitron', sans-serif;
-      font-weight: 900;
-      font-size: clamp(2.8rem, 10vw, 5.5rem);
-      line-height: 1;
-      color: #fff;
-      text-shadow: 
-        0 0 20px rgba(255, 255, 255, 0.4),
-        0 0 40px rgba(56, 189, 248, 0.3);
-    }
-
-    .time-label {
-      font-family: 'Orbitron', sans-serif;
+    .num {
+      font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
-      font-size: 0.85rem;
-      letter-spacing: 4px;
-      color: #38bdf8;
+      font-size: clamp(2.4rem, 8vw, 3.8rem);
+      color: #fff;
+      line-height: 1;
+    }
+
+    .label {
+      font-size: 0.75rem;
+      color: #555;
       text-transform: uppercase;
+      letter-spacing: 2px;
       margin-top: 6px;
     }
 
-    @media (max-width: 600px) {
-      .container {
-        padding: 30px 16px;
+    @media (max-width: 480px) {
+      .timer {
+        gap: 18px;
       }
-      .game-image {
-        border-radius: 12px;
-        margin-bottom: 30px;
-      }
-      .title {
-        letter-spacing: 2px;
-      }
-      .subtitle {
-        letter-spacing: 3px;
-        margin-bottom: 35px;
-      }
-      .countdown {
-        gap: 12px;
-      }
-      .time-box {
-        min-width: 70px;
+      .block {
+        min-width: 58px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <img 
-      src="https://tr.rbxcdn.com/180DAY-942f70f9671ca17af4441d3aa1598acd/768/432/Image/Png/noFilter" 
-      alt="KkSaiko Modded" 
-      class="game-image"
-    >
+  <div class="wrap">
+    <img src="https://tr.rbxcdn.com/180DAY-942f70f9671ca17af4441d3aa1598acd/768/432/Image/Png/noFilter" alt="KkSaiko Modded">
+    
+    <h1>KkSaiko Modded</h1>
+    <div class="sub">new experience</div>
 
-    <h1 class="title">KkSaiko Modded</h1>
-    <p class="subtitle">New Experience</p>
-
-    <div class="countdown">
-      <div class="time-box">
-        <div class="time-number" id="days">0</div>
-        <div class="time-label">Days</div>
+    <div class="timer">
+      <div class="block">
+        <div class="num" id="d">0</div>
+        <div class="label">days</div>
       </div>
-      <div class="time-box">
-        <div class="time-number" id="hours">0</div>
-        <div class="time-label">Hours</div>
+      <div class="block">
+        <div class="num" id="h">00</div>
+        <div class="label">hours</div>
       </div>
-      <div class="time-box">
-        <div class="time-number" id="minutes">0</div>
-        <div class="time-label">Minutes</div>
+      <div class="block">
+        <div class="num" id="m">00</div>
+        <div class="label">min</div>
       </div>
-      <div class="time-box">
-        <div class="time-number" id="seconds">0</div>
-        <div class="time-label">Seconds</div>
+      <div class="block">
+        <div class="num" id="s">00</div>
+        <div class="label">sec</div>
       </div>
     </div>
   </div>
 
   <script>
-    const target = 1794085200 * 1000;
+    const end = 1794085200 * 1000;
 
-    function updateCountdown() {
+    function tick() {
       const now = Date.now();
-      let diff = Math.max(0, target - now);
+      let t = Math.max(0, end - now);
 
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      diff %= 1000 * 60 * 60 * 24;
+      const d = Math.floor(t / 86400000);
+      t %= 86400000;
+      const h = Math.floor(t / 3600000);
+      t %= 3600000;
+      const m = Math.floor(t / 60000);
+      t %= 60000;
+      const s = Math.floor(t / 1000);
 
-      const hours = Math.floor(diff / (1000 * 60 * 60));
-      diff %= 1000 * 60 * 60;
-
-      const minutes = Math.floor(diff / (1000 * 60));
-      diff %= 1000 * 60;
-
-      const seconds = Math.floor(diff / 1000);
-
-      document.getElementById('days').textContent = days;
-      document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-      document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-      document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+      document.getElementById('d').textContent = d;
+      document.getElementById('h').textContent = String(h).padStart(2, '0');
+      document.getElementById('m').textContent = String(m).padStart(2, '0');
+      document.getElementById('s').textContent = String(s).padStart(2, '0');
     }
 
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
+    tick();
+    setInterval(tick, 1000);
   </script>
 </body>
 </html>
